@@ -1,0 +1,198 @@
+setup: |
+  cd listsorting && poetry install
+  echo "Done installing project dependencies!"
+---
+
+# perform checks on a file
+- listsorting/listsorting/experiment.py:
+    - description: Ensure that the main.py file exists in the listsorting/listsorting/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for main.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in experiment.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 5
+        exact: false
+    - description: Create a sufficient number of single-line comments in experiment.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 10
+        exact: false
+
+# perform checks on a file
+- listsorting/listsorting/main.py:
+    - description: Ensure that the main.py file exists in the listsorting/listsorting/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for main.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in main.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+    - description: Create a sufficient number of single-line comments in main.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 5
+        exact: false
+
+# perform checks on a file
+- listsorting/tests/test_sorting.py:
+    - description: Ensure that the test_sorting.py file exists in the listsorting/tests/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for test_sorting.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Ensure that there are the right number of test cases defined in the test_sorting.py file
+      check: MatchFileFragment
+      options:
+        fragment: "test_"
+        count: 2
+        exact: false
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in test_sorting.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 2
+        exact: false
+    - description: Create a sufficient number of single-line comments in test_sorting.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 2
+        exact: false
+
+# perform checks on a file
+- listsorting/listsorting/sorting.py:
+    - description: Ensure that the sorting.py file exists in the listsorting/listsorting/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for sorting.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in sorting.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 2
+        exact: false
+    - description: Create a sufficient number of single-line comments in sorting.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 2
+        exact: false
+
+# perform checks on a file
+- listsorting/tests/test_sorting.py:
+    - description: Ensure that the test_sorting.py file exists in the listsorting/tests/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for test_sorting.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Ensure that there are the right number of test cases defined in the test_sorting.py file
+      check: MatchFileFragment
+      options:
+        fragment: "test_"
+        count: 2
+        exact: false
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in test_sorting.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+    - description: Create a sufficient number of single-line comments in test_sorting.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 2
+        exact: false
+
+# perform checks on a file
+- writing/reflection.md:
+    - description: Ensure that the reflection.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for the reflection
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the reflection file
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Confirm that the markdown file has the correct number of headers
+      check: CountMarkdownTags
+      options:
+        tag: heading
+        count: 18
+        exact: false
+    - description: Confirm that the markdown file has the correct number of fenced code blocks
+      check: CountMarkdownTags
+      options:
+        tag: code_block
+        count: 5
+        exact: false
+
+# run a command
+- description: Pass the source code formatting checks run by black
+  command: cd listsorting && poetry run task black
+
+# run a command
+- description: Pass the linting checks run by flake8
+  command: cd listsorting && poetry run task flake8
+
+# run a command
+- description: Pass the import checks run by isort
+  command: cd listsorting && poetry run task isort
+
+# run a command
+- description: Pass the linting checks run by mypy
+  command: cd listsorting && poetry run task mypy
+
+# run a command
+- description: Pass the linting checks run by pydocstyle
+  command: cd listsorting && poetry run task pydocstyle
+
+# run a command
+- description: Pass the linting checks run by pylint
+  command: cd listsorting && poetry run task pylint
+
+# run a command
+- description: Pass the linting checks run by pymarkdown
+  command: cd listsorting && poetry run task markdownlint
+
+# run a command
+- description: Pass all of the Pytest test cases
+  command: cd listsorting && poetry run task test
+
+# count number of commits in the GitHub repository
+- description: Have at least a specific minimum of commits in repository
+  check: CountCommits
+  options:
+    count: 10
