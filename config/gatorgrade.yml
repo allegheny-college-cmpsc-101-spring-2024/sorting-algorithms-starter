@@ -160,31 +160,15 @@ setup: |
         exact: false
 
 # run a command
-- description: Pass the source code formatting checks run by black
-  command: cd listsorting && poetry run task black
+- description: Pass the source code linting and formatting checks run by ruff
+  command: cd listsorting && poetry run task ruff
 
 # run a command
-- description: Pass the linting checks run by flake8
-  command: cd listsorting && poetry run task flake8
-
-# run a command
-- description: Pass the import checks run by isort
-  command: cd listsorting && poetry run task isort
-
-# run a command
-- description: Pass the linting checks run by mypy
+- description: Pass the type checks run by mypy
   command: cd listsorting && poetry run task mypy
 
 # run a command
-- description: Pass the linting checks run by pydocstyle
-  command: cd listsorting && poetry run task pydocstyle
-
-# run a command
-- description: Pass the linting checks run by pylint
-  command: cd listsorting && poetry run task pylint
-
-# run a command
-- description: Pass the linting checks run by pymarkdown
+- description: Pass the markdown linting checks run by pymarkdown
   command: cd listsorting && poetry run task markdownlint
 
 # run a command
