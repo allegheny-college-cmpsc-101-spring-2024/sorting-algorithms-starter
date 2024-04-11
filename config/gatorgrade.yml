@@ -25,6 +25,13 @@ setup: |
         language: "Python"
         count: 10
         exact: false
+      objectives:
+        LO3:
+          degree:
+            - DS: "I"
+              rationale: ""
+            - SE: "D"
+              rationale: ""
 
 # perform checks on a file
 - listsorting/listsorting/main.py:
@@ -162,21 +169,46 @@ setup: |
 # run a command
 - description: Pass the source code linting and formatting checks run by ruff
   command: cd listsorting && poetry run task ruff
+  objectives:
+    LO5:
+      degree:
+        - SE: "D"
+          rationale: "for SE PO1. ruff linter pass indicates code conforms to industry standards"
 
 # run a command
 - description: Pass the type checks run by mypy
   command: cd listsorting && poetry run task mypy
+  objectives:
+    LO5:
+      degree:
+        - SE: "D"
+          rationale: "for SE PO1. mypy checks pass indicates code conforms to industry standards"
 
 # run a command
 - description: Pass the markdown linting checks run by pymarkdown
   command: cd listsorting && poetry run task markdownlint
+  objectives:
+    LO5:
+      degree:
+        - SE: "D"
+          rationale: "for SE PO1. pymarkdown pass indicates documentation conforms to industry standards"
 
 # run a command
 - description: Pass all of the Pytest test cases
   command: cd listsorting && poetry run task test
+  objectives:
+    LO4:
+      degree:
+        - IM: "I"
+          rationale: "for IM PO1. pytest pass indicates use of tools for testing and debugging"
 
 # count number of commits in the GitHub repository
 - description: Have at least a specific minimum of commits in repository
   check: CountCommits
   options:
     count: 10
+  objectives:
+    LO4:
+      degree:
+        - IM: "I"
+          rationale: "for IM PO1. commits indicates use of version control systems"
