@@ -25,13 +25,6 @@ setup: |
         language: "Python"
         count: 10
         exact: false
-      objectives:
-        LO3:
-          degree:
-            - DS: "I"
-              rationale: ""
-            - SE: "D"
-              rationale: ""
 
 # perform checks on a file
 - listsorting/listsorting/main.py:
@@ -55,6 +48,117 @@ setup: |
         language: "Python"
         count: 5
         exact: false
+    - description: Conduct a doubling experiment for sorting by calling the run_sorting_algorithm_experiment_campaign
+      check: MatchFileFragment
+      options:
+        fragment: experiment.run
+        count: 1
+        exact: true
+      objectives:
+        LO3:
+          degree:
+            - DS: "I"
+              rationale: "PO1. pass indicates experiment campaign function called"
+    - description: Import the tabulate module from the tabulate package
+      check: MatchFileFragment
+      options:
+        fragment: tabulate import
+        count: 1
+        exact: true
+      objectives:
+        LO3:
+          degree:
+            - DS: "I"
+              rationale: "PO1. pass indicates prep for displaying experimental results"
+    - description: Use a variable named algorithm within a function call to run a specific sorting algorithm
+      check: MatchFileFragment
+      options:
+        fragment: "algorithm,"
+        count: 1
+        exact: true
+      objectives:
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates specific algorithm was used for sorting"
+            - CS: "I"
+              rationale: "PO1. pass indicates specific algorithm was used for sorting"
+    - description: Confirm the accuracy of the first data table header
+      check: MatchFileFragment
+      options:
+        fragment: "Input Size"
+        count: 1
+        exact: false
+      objectives:
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+            - CS: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
+            - CS: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
+    - description: Confirm the accuracy of the second data table header
+      check: MatchFileFragment
+      options:
+        fragment: "Min time (s)"
+        count: 1
+        exact: false
+      objectives:
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+            - CS: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
+            - CS: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
+    - description: Confirm the accuracy of the third data table header
+      check: MatchFileFragment
+      options:
+        fragment: "Max time (s)"
+        count: 1
+        exact: false
+      objectives:
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+            - CS: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
+            - CS: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
+    - description: Confirm the accuracy of the fourth data table header
+      check: MatchFileFragment
+      options:
+        fragment: "Avg time (s)"
+        count: 1
+        exact: false
+      objectives:
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+            - CS: "I"
+              rationale: "PO1. pass indicates accurate description of algorithm timing results"
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
+            - CS: "I"
+              rationale: "PO1. pass indicates correct use of a data structure (table) in a python program"
 
 # perform checks on a file
 - listsorting/tests/test_sorting.py:
@@ -107,6 +211,19 @@ setup: |
         language: "Python"
         count: 2
         exact: false
+    - description: Implement seven algorithms to support different types of sorting
+      check: MatchFileFragment
+      options:
+        fragment: return
+        count: 7
+        exact: false
+      objectives:
+        LO2:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates sorting algorithms of various efficiency were implemented"
+            - CS: "I"
+              rationale: "PO1. pass indicates sorting algorithms of various efficiency were implemented"
 
 # perform checks on a file
 - listsorting/tests/test_sorting.py:
@@ -165,6 +282,105 @@ setup: |
         tag: code_block
         count: 5
         exact: false
+    - description: List second of three or more research questions that can be answered empirically
+      check: MatchFileFragment
+      options:
+        fragment: "- RQ2:"
+        count: 1
+        exact: false
+      objectives:
+        LO1:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates planned analysis of experimental data"
+            - CS: "I"
+              rationale: "PO1. pass indicates planned analysis of experimental data"
+    - description: List third of three or more research questions that can be answered empirically
+      check: MatchFileFragment
+      options:
+        fragment: "- RQ3:"
+        count: 1
+        exact: false
+      objectives:
+        LO1:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates planned analysis of experimental data"
+            - CS: "I"
+              rationale: "PO1. pass indicates planned analysis of experimental data"
+    - description: Explain which sorting algorithm is fastest, and delete the prompt
+      check: MatchFileFragment
+      options:
+        fragment: "explain which sorting algorithm is\nfastest"
+        count: 0
+        exact: true
+      objectives:
+        LO1:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates sorting algorithms were compared for time efficiency"
+            - CS: "I"
+              rationale: "PO1. pass indicates sorting algorithms were compared for time efficiency"
+    - description: Compute and explain by how much the fastest algorithm it is faster, and delete the prompt
+      check: MatchFileFragment
+      options:
+        fragment: ", by how much it is faster,"
+        count: 0
+        exact: true
+      objectives:
+        LO1:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates doubling ratio was calculated and stated"
+            - CS: "I"
+              rationale: "PO1. pass indicates doubling ratio was calculated and stated"
+    - description: Mention specific python constructs that lead to observed doubling ratio, and delete the prompt
+      check: MatchFileFragment
+      options:
+        fragment: "mentioning specific python constructs."
+        count: 0
+        exact: true
+      objectives:
+        LO1:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates python constructs impacting efficiency were identified"
+            - CS: "I"
+              rationale: "PO1. pass indicates python constructs impacting efficiency were identified"
+    - description: Show fraction for calculating at least one doubling ratio for each algorithm using mathematical markdown syntax
+      check: MatchFileFragment
+      options:
+        fragment: "\frac{"
+        count: 5
+        exact: false
+      objectives:
+        LO1:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates accuracy in characterizing algorithms through mathematical calculation"
+            - CS: "I"
+              rationale: "PO1. pass indicates accuracy in characterizing algorithms through mathematical calculation"
+        LO3:
+          degree:
+            - DS: "I"
+              rationale: "PO1. pass indicates data used to characterize performance of sorting algorithms"
+    - description: Show approximate doubling ratio for each algorithm using mathematical markdown syntax
+      check: MatchFileFragment
+      options:
+        fragment: "\approx"
+        count: 5
+        exact: false
+      objectives:
+        LO1:
+          degree:
+            - SE: "I"
+              rationale: "PO1. pass indicates accuracy in characterizing algorithms through mathematical calculation"
+            - CS: "I"
+              rationale: "PO1. pass indicates accuracy in characterizing algorithms through mathematical calculation"
+        LO3:
+          degree:
+            - DS: "I"
+              rationale: "PO1. pass indicates data used to characterize performance of sorting algorithms"
 
 # run a command
 - description: Pass the source code linting and formatting checks run by ruff
@@ -173,7 +389,7 @@ setup: |
     LO5:
       degree:
         - SE: "D"
-          rationale: "for SE PO1. ruff linter pass indicates code conforms to industry standards"
+          rationale: "PO1. ruff linter pass indicates code conforms to industry standards"
 
 # run a command
 - description: Pass the type checks run by mypy
@@ -182,7 +398,7 @@ setup: |
     LO5:
       degree:
         - SE: "D"
-          rationale: "for SE PO1. mypy checks pass indicates code conforms to industry standards"
+          rationale: "PO1. mypy checks pass indicates code conforms to industry standards"
 
 # run a command
 - description: Pass the markdown linting checks run by pymarkdown
@@ -191,7 +407,7 @@ setup: |
     LO5:
       degree:
         - SE: "D"
-          rationale: "for SE PO1. pymarkdown pass indicates documentation conforms to industry standards"
+          rationale: "PO1. pymarkdown pass indicates documentation conforms to industry standards"
 
 # run a command
 - description: Pass all of the Pytest test cases
@@ -200,7 +416,7 @@ setup: |
     LO4:
       degree:
         - IM: "I"
-          rationale: "for IM PO1. pytest pass indicates use of tools for testing and debugging"
+          rationale: "PO1. pytest pass indicates use of tools for testing and debugging"
 
 # count number of commits in the GitHub repository
 - description: Have at least a specific minimum of commits in repository
@@ -211,4 +427,4 @@ setup: |
     LO4:
       degree:
         - IM: "I"
-          rationale: "for IM PO1. commits indicates use of version control systems"
+          rationale: "PO1. commits indicates use of version control systems"
